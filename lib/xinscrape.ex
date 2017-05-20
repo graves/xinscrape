@@ -14,7 +14,7 @@ defmodule Xinscrape do
       ["hey i am so pretty", "i'm v smart too"]
 
   """
-  defdelegate replies, to: Xinscrape.Client
+  defdelegate replies(user_id, offset), to: Xinscrape.Client
 
   @doc """
   Returns topics created by the specified username within
@@ -27,7 +27,7 @@ defmodule Xinscrape do
   ["EVERYONE IS NOT AS GOOD AS ME", "Why Are You All So Bad At Things"]
 
   """
-  defdelegate topics, to: Xinscrape.Client
+  defdelegate topics(user_id, offset), to: Xinscrape.Client
 
   @doc """
   Returns both replies and topics created by the specified username within
@@ -40,5 +40,5 @@ defmodule Xinscrape do
   ["i'm so smart and pretty", "Why Are You All So Bad At Things"]
 
   """
-  defdelegate all, to: Xinscrape.Client
+  defdelegate all(user_id, offset), to: Xinscrape.Client
 end
