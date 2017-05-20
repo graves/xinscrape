@@ -21,8 +21,7 @@ defmodule Xinscrape.Client do
   Get a segment of replies by the specified user
   """
   def replies(user_id, offset, proxy \\ %{}) do
-    data = %{offset: offset, filters: @replies}
-    request({:get, "user_actions.json?username=#{user_id}&offset=#{offset}&filter=#{@replies}"},  proxy)
+    request({:get, "user_actions.json?username=#{user_id}&offset=#{offset}&filter=#{@replies}"}, proxy)
     |> Xinscrape.Parser.parse_excerpts
   end
 
@@ -30,7 +29,6 @@ defmodule Xinscrape.Client do
   Get a segment of topics by the specified user
   """
   def topics(user_id, offset, proxy \\ %{}) do
-    data = %{offset: offset, filters: @replies}
     request({:get, "user_actions.json?username=#{user_id}&offset=#{offset}&filter=#{@topics}"}, proxy)
     |> Xinscrape.Parser.parse_excerpts
   end
@@ -39,7 +37,6 @@ defmodule Xinscrape.Client do
   Get a segment of both replies and topics by the specified user
   """
   def all(user_id, offset, proxy \\ %{}) do
-    data = %{offset: offset, filters: @replies}
     request({:get, "user_actions.json?username=#{user_id}&offset=#{offset}&filter=#{@topics},#{@replies}"}, proxy)
     |> Xinscrape.Parser.parse_excerpts
   end
