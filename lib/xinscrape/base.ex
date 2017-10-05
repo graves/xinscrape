@@ -28,7 +28,6 @@ defmodule Xinscrape.Base do
 
   @doc false
   def process_response_body(body) do
-    IO.puts "#{inspect body}"
     JSX.decode!(body, [{:labels, :atom}])
   end
 
